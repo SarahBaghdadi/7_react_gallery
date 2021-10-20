@@ -12,19 +12,23 @@ class SearchForm extends Component {
         searching: false
     }
     search = () => {
-        query = 'dogs';
+        const query = this.props.match.params.query;
         axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
-        // .then((response) => {
-        //     this.setState({
-        //       data: response.data.photos.photo, 
-        //       searching: true
-        //     });
-        // })
+        .then((response) => {
+            this.setState({
+              data: response.data.photos.photo, 
+              searching: true
+            });
+        })
+    }
+
+    componentDidMount() {
+        this.search();
     }
     
     render (){
-        console.log(this.props.match.params.query);
-        this.search();
+        // console.log(this.props.match.params.query);
+        //this.search();
         return(
             <div>
                 <form className="search-form">
