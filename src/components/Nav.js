@@ -1,13 +1,16 @@
 import react from "react";
+import { NavLink, BrowserRouter } from "react-router-dom";
 
 const Nav = (props) => {
     return (
         <nav className="main-nav">
-            <ul>
-            <li><a href='#'>Cats</a></li>
-            <li><a href='#'>Dogs</a></li>
-            <li><a href='#'>Computers</a></li>
-            </ul>
+            <BrowserRouter forceRefresh={true}>
+                <ul>
+                    <li><NavLink to='/search/cats'>Cats</NavLink></li>
+                    <li><NavLink to='/search/puppies'>Puppies</NavLink></li>
+                    <li><NavLink to='/search/zebra'>Zebra</NavLink></li>
+                </ul>
+            </BrowserRouter>
         </nav>
     );
 }
