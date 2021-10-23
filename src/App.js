@@ -19,6 +19,7 @@ function App() {
         <Nav/>
         <BrowserRouter>
           <Switch>
+            <Route exact path='/' render={(props) => <SearchForm {...props}/>}/>
             <Route path='/search/:query' render={(props) => <SearchForm {...props}/>}/>
           </Switch>
         </BrowserRouter>
