@@ -1,16 +1,14 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import Nav from './components/Nav';
 import SearchForm from './components/SearchForm';
-import PhotoContainer from './components/PhotoContainer';
 import './App.css';
 import {
   BrowserRouter,
   Route,
-  Redirect,
   Switch
 } from 'react-router-dom';
 
+// App component
 function App() {
   return (
     <div className="App">
@@ -20,6 +18,7 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Route exact path='/' render={(props) => <SearchForm {...props}/>}/>
+            <Route exact path='/search' render={(props) => <SearchForm {...props}/>}/>
             <Route path='/search/:query' render={(props) => <SearchForm {...props}/>}/>
           </Switch>
         </BrowserRouter>

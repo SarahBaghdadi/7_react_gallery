@@ -1,6 +1,7 @@
-import react from "react";
+import React from 'react';
 import { NavLink, BrowserRouter } from "react-router-dom";
 
+// Nav Component
 const Nav = (props) => {
     return (
         <nav className="main-nav">

@@ -1,4 +1,4 @@
-import react, {Component} from "react";
+import React, {Component} from "react";
 import PhotoContainer from "./PhotoContainer";
 import NotFound from './NotFound';
 import axios from 'axios';
@@ -6,6 +6,8 @@ import apiKey from '../Config';
 
 let query;
 let data;
+
+// Search form manages state for data & query. It returns the SearchForm HTML and the PhotoContainer component. Query is obtained from URL parameter. Data is obtained from flickr API.
 
 class SearchForm extends Component {
     state = {
@@ -30,6 +32,7 @@ class SearchForm extends Component {
         }
     }
 
+    // On submit, push the query path to the history stack.
     handleSubmit = (e) => {
         e.preventDefault(); 
         let query = this.query.value;
@@ -37,6 +40,7 @@ class SearchForm extends Component {
         this.props.history.push(path);
     }
 
+    // Use componentDidMount and componendDidUpdate to call the search function and prevent infinite API calls.
     componentDidMount() {
         this.search();
     }
@@ -48,7 +52,8 @@ class SearchForm extends Component {
           }
     }
     
-    render (){
+    // If query is empty, just return the search form HTML. If data is empty, return NotFound component. Else return the search from HTML with the results displayed by the PhotoContainer component.
+    render () {
         if (this.state.query.length == 0) {
             return (
                 <div>
@@ -60,8 +65,7 @@ class SearchForm extends Component {
                             <path d="M0 0h24v24H0z" fill="none"/>
                         </svg>
                         </button>
-                    </form> 
-                    <PhotoContainer data={this.state.data} title={this.state.query}/>  
+                    </form>  
                 </div>
             );
         } else if (this.state.data.length == 0){

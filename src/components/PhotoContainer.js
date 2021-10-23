@@ -1,6 +1,7 @@
-import react, { Component } from "react";
+import React, { Component } from "react";
 import Photo from "./Photo";
 
+// PhotoContainer component returns Photo elements
 const PhotoContainer = (props) => {
     let data = props.data;
     let photos = data.map(photo => {

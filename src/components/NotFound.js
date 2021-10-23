@@ -1,5 +1,6 @@
-import react from "react";
+import React from 'react';
 
+// NotFound Component
 const NotFound = () => {
     return(
         <div className="not-found">
